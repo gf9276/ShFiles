@@ -5,7 +5,7 @@
 hostip=$(cat /etc/resolv.conf | grep nameserver | awk '{ print $2 }')
 wslip=$(hostname -I | awk '{print $1}')
 port=7890
-socks_port=7890
+socks_port=7890 # clash的混合端口是7890，这个看clash而不是代理的配置，不是7891
 
 PROXY_HTTP="http://${hostip}:${port}"
 PROXY_SOCKS="socks5h://${hostip}:${socks_port}"
