@@ -4,6 +4,7 @@
 
 set -o errexit # 报错直接退出
 
+echo -e "\e[36m小心, sudo会使代理失效, 建议以root用户的身份开启代理后再执行\e[0m"
 echo -e "\e[36m开始更新、安装、设置语言\e[0m"
 apt -y update
 
@@ -26,7 +27,7 @@ then
     exit
 fi
 
-sudo dpkg-reconfigure locales
+dpkg-reconfigure locales
 
 echo -en "\n\e[36m是否需要中文字体和语言包\e[93m(yes/no):\e[0m"
 read choice

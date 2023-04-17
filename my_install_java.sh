@@ -1,11 +1,13 @@
 #!/bin/bash
 
 # 该文件用于java的安装，可选版本8 17 11
+# 测试过没有问题
 
 set -o errexit # 报错直接退出
 
-echo -e "\e[36m开始更新、安装、设置 java\e[0m"
+echo -e "\e[36m小心, sudo会使代理失效, 建议以root用户的身份开启代理后再执行\e[0m"
 echo -e "\e[36m如果下载突然变慢, 可以 ctrl c 然后重来, 下载是可以接上的\e[0m"
+echo -e "\e[36m开始更新、安装、设置 java\e[0m"
 
 java_cfg_file_path="/etc/profile.d/my_java_cfg.sh"  # 这个路径不能错, 必须在 /etc/profile.d/ 下面, 名字无所谓
 

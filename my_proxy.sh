@@ -1,11 +1,9 @@
 #!/bin/sh
 
-# 该文件用于建立win和wsl之间的代理通信，请使用 source 运行
-
 hostip=$(cat /etc/resolv.conf | grep nameserver | awk '{ print $2 }')
 wslip=$(hostname -I | awk '{print $1}')
 port=7890
-socks_port=7890 # clash的混合端口是7890，这个看clash而不是代理的配置，不是7891
+socks_port=7890 # 看clash的配置，混合模式默认用的确实是7890
 
 PROXY_HTTP="http://${hostip}:${port}"
 PROXY_SOCKS="socks5h://${hostip}:${socks_port}"
@@ -48,18 +46,21 @@ test_setting(){
     echo "Proxy setup succeeded!"
   else
     echo "Proxy setup failed!"
+    echo "反正都没用, 帮你关上"
+    unset_proxy
   fi
 }
 
-if [ "$1" = "set" ]
+v1=${1:-"set"} # 设置默认为set，即开启
+if [ "$v1" = "set" ]
 then
   set_proxy
 
-elif [ "$1" = "unset" ]
+elif [ "$v1" = "unset" ]
 then
   unset_proxy
 
-elif [ "$1" = "test" ]
+elif [ "$v1" = "test" ]
 then
   test_setting
 else
