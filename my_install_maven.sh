@@ -5,14 +5,14 @@
 
 set -o errexit # 报错直接退出
 
-echo -e "\e[36m小心, sudo会使代理失效, 建议以root用户的身份开启代理后再执行\e[0m"
+echo -e "\e[36msudo会使代理失效, 建议以root用户的身份开启代理后再执行\e[0m"
 echo -e "\e[36m开始安装 maven 到 /opt/maven 目录下 \e[0m"
 
 maven_cfg_file_path="/etc/profile.d/my_maven_cfg.sh"
 
 # 下载压缩包
-if [ ! -d "/opt/maven" ]  # 存在
-then
+if [ ! -d "/opt/maven" ]  # 不存在
+then # 创建这个目录
     mkdir /opt/maven
 fi
 cd /opt/maven
