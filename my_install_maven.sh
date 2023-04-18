@@ -16,7 +16,11 @@ then # 创建这个目录
     mkdir /opt/maven
 fi
 cd /opt/maven
-wget https://dlcdn.apache.org/maven/maven-3/3.9.1/binaries/apache-maven-3.9.1-bin.tar.gz
+
+if [ ! -e "./apache-maven-3.9.1-bin.tar.gz" ]  # 不存在才下载
+then # 下载压缩包
+    wget https://dlcdn.apache.org/maven/maven-3/3.9.1/binaries/apache-maven-3.9.1-bin.tar.gz
+fi
 
 # 解压缩并删除压缩包
 cd /opt/maven
