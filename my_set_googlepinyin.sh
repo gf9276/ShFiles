@@ -33,5 +33,5 @@ echo '# fcitx自启动' >>$fcitx_cfg_file_path
 echo 'fcitx-autostart &>/dev/null' >>$fcitx_cfg_file_path
 
 echo ""
-echo -e "\e[36m安装结束, wsl --shutdown 后重启wsl\e[0m"
+echo -e "\e[36m安装结束, \e[93mwsl --shutdown \e[36m后重启wsl\e[0m"
 echo -e "\e[36m重启后请执行 \e[93mfcitx-configtool  \e[36m手动设置快捷键\e[0m"

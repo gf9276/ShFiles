@@ -37,5 +37,5 @@ dpkg-reconfigure locales
 # fi
 
 echo ""
-echo -e "\e[36m安装结束, wsl --shutdown 后重启wsl\e[0m"
+echo -e "\e[36m安装结束, \e[93mwsl --shutdown \e[36m后重启wsl\e[0m"
 echo -e "\e[36m重启后请执行 \e[93m locale \e[36m查看设置情况\e[0m"
