@@ -19,7 +19,7 @@ cd /opt/maven
 
 if [ ! -e "./apache-maven-3.9.1-bin.tar.gz" ]; then # 不存在才下载
     # 下载压缩包
-    wget https://dlcdn.apache.org/maven/maven-3/3.9.1/binaries/apache-maven-3.9.1-bin.tar.gz
+    wget https://archive.apache.org/dist/maven/maven-3/3.9.1/binaries/apache-maven-3.9.1-bin.tar.gz
 fi
 
 # 解压缩并删除压缩包
