@@ -21,7 +21,8 @@ set_proxy() {
   git config --global http.https://github.com.proxy ${PROXY_SOCKS}
   git config --global https.https://github.com.proxy ${PROXY_SOCKS}
 
-  echo "Proxy has been opened."
+  # 暂时注释掉，不然随着profile启动，会导致一些问题，启动的时候最好不要输出东西
+  # echo "Proxy has been opened."
 }
 
 unset_proxy() {
