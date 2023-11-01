@@ -6,11 +6,11 @@ port=7890
 socks_port=7890 # 看clash的配置，混合模式默认用的确实是7890
 
 PROXY_HTTP="http://${hostip}:${port}"
-PROXY_SOCKS="socks5h://${hostip}:${socks_port}"
+PROXY_SOCKS="socks5://${hostip}:${socks_port}" # 别用socks5h
 
 set_proxy() {
-  export all_proxy="${PROXY_SOCKS}"
-  export ALL_PROXY="${PROXY_SOCKS}"
+  export all_proxy="${PROXY_HTTP}" # http永远是最稳的，草
+  export ALL_PROXY="${PROXY_HTTP}"
   export https_proxy="${PROXY_HTTP}"
   export HTTPS_PROXY="${PROXY_HTTP}"
   export http_proxy="${PROXY_HTTP}"
