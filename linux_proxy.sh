@@ -1,6 +1,8 @@
 #!/bin/sh
 
-hostip=127.0.0.1
+if [ ! $hostip ]; then
+  hostip=127.0.0.1 # 如果没有环境变量，就给一个，如果有环境变量，自然就用现成的
+fi
 
 port=7890
 socks_port=7890 # 看clash的配置，有时候混合模式默认用的确实是7890
