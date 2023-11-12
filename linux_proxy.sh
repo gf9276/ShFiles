@@ -56,7 +56,7 @@ test_setting() {
 v1=${1:-"set"} # 设置默认为set，即开启
 v2=${2:-""}    # 第二个位置是ip
 if [ "$v1" = "set" ]; then
-  if [! "$v2" = ""]; then
+  if [ ! "$v2" = "" ]; then
     hostip="$v2"
   fi
   set_proxy
