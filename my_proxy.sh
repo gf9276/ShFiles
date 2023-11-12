@@ -5,7 +5,7 @@ wslip=$(hostname -I | awk '{print $1}')
 port=7890
 socks_port=7890 # 看clash的配置，混合模式默认用的确实是7890
 
-PROXY_HTTP="http://${hostip}:${port}"
+PROXY_HTTP="http://${hostip}:${port}"          # 我的建议是直接全部都用这个，少点bug，我说实话
 PROXY_SOCKS="socks5://${hostip}:${socks_port}" # 别用socks5h
 
 set_proxy() {
@@ -18,8 +18,8 @@ set_proxy() {
   export no_proxy="localhost, 127.0.0.0/8, ::1, ${hostip}, ${wslip}"
   export NO_PROXY="localhost, 127.0.0.0/8, ::1, ${hostip}, ${wslip}"
 
-  git config --global http.https://github.com.proxy ${PROXY_SOCKS}
-  git config --global https.https://github.com.proxy ${PROXY_SOCKS}
+  git config --global http.https://github.com.proxy ${PROXY_HTTP}
+  git config --global https.https://github.com.proxy ${PROXY_HTTP}
 
   # 暂时注释掉，不然随着profile启动，会导致一些问题，启动的时候最好不要输出东西
   # echo "Proxy has been opened."
