@@ -5,9 +5,10 @@ hostip=127.0.0.1
 port=7890
 socks_port=7890 # 看clash的配置，有时候混合模式默认用的确实是7890
 
-PROXY_HTTP="http://${hostip}:${port}"
-PROXY_SOCKS="socks5://${hostip}:${socks_port}" # 别用socks5h！！！
 set_proxy() {
+  PROXY_HTTP="http://${hostip}:${port}"
+  PROXY_SOCKS="socks5://${hostip}:${socks_port}" # 别用socks5h！！！
+
   export all_proxy="${PROXY_HTTP}" # http永远是最稳的，草
   export ALL_PROXY="${PROXY_HTTP}"
   export https_proxy="${PROXY_HTTP}"
@@ -57,7 +58,7 @@ v1=${1:-"set"} # 设置默认为set，即开启
 v2=${2:-""}    # 第二个位置是ip
 if [ "$v1" = "set" ]; then
   if [ ! "$v2" = "" ]; then
-    hostip="$v2"
+    hostip="$v2" # 如果给了ip，就更新ip
   fi
   set_proxy
 
