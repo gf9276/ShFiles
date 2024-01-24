@@ -40,7 +40,6 @@ unset_proxy() {
   unset no_proxy
 
   conda config --remove-key proxy_servers
-  conda config --remove-key proxy_servers
 
   git config --global --unset http.https://github.com.proxy
   git config --global --unset https.https://github.com.proxy
