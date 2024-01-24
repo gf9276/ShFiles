@@ -20,8 +20,8 @@ set_proxy() {
   export no_proxy="localhost, 127.0.0.0/8, ::1, ${hostip}"
   export NO_PROXY="localhost, 127.0.0.0/8, ::1, ${hostip}"
 
-  conda config --set proxy_servers.http ${PROXY_HTTP}
-  conda config --set proxy_servers.https ${PROXY_HTTP}
+  # conda config --set proxy_servers.http ${PROXY_HTTP}
+  # conda config --set proxy_servers.https ${PROXY_HTTP}
 
   git config --global http.https://github.com.proxy ${PROXY_HTTP}
   git config --global https.https://github.com.proxy ${PROXY_HTTP}
@@ -39,7 +39,7 @@ unset_proxy() {
   unset NO_PROXY
   unset no_proxy
 
-  conda config --remove-key proxy_servers
+  # conda config --remove-key proxy_servers
 
   git config --global --unset http.https://github.com.proxy
   git config --global --unset https.https://github.com.proxy
