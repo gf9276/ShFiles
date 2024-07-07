@@ -72,7 +72,13 @@ fi
 
 # 注意下面的单引号和双引号
 echo "export JAVA_HOME=/usr/lib/jvm/java-$cfg_nbr-openjdk-amd64" >>$java_cfg_file_path
-echo 'export JRE_HOME=$JAVA_HOME/jre' >>$java_cfg_file_path
+
+# 版本大于8，JRE集成到JDK里了
+if ["$cfg_nbr" -gt 8]; then
+    echo 'export JRE_HOME=$JAVA_HOME' >>$java_cfg_file_path
+else
+    echo 'export JRE_HOME=$JAVA_HOME/jre' >>$java_cfg_file_path
+fi
 echo 'export PATH=$JAVA_HOME/bin:$JRE_HOME/bin:$PATH' >>$java_cfg_file_path
 
 echo -e "\e[36m环境变量写入完毕, 请检查文件以确保写入没有问题:\e[93msudo vim $java_cfg_file_path\e[0m"
