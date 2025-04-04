@@ -73,7 +73,7 @@ fi
 # 注意下面的单引号和双引号
 echo "export JAVA_HOME=/usr/lib/jvm/java-$cfg_nbr-openjdk-amd64" >>$java_cfg_file_path
 
-# 版本大于8，JRE集成到JDK里了
+# 版本大于8，JRE集成到JDK里了 修复bug
 if [ "$cfg_nbr" -gt 8 ]; then
     echo 'export JRE_HOME=$JAVA_HOME' >>$java_cfg_file_path
 else
