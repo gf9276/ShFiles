@@ -85,3 +85,5 @@ echo -e "\e[36m环境变量写入完毕, 请检查文件以确保写入没有问
 echo -e "\e[36m请手动执行指令:\e[93msudo update-alternatives --config java \e[36m选择与环境变量对应版本一致的java\e[0m"
 
 echo -e "\e[36m检查完后请手动执行命令:\e[93m. /etc/profile\e[0m\n"
+
+# lf
