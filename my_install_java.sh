@@ -74,7 +74,7 @@ fi
 echo "export JAVA_HOME=/usr/lib/jvm/java-$cfg_nbr-openjdk-amd64" >>$java_cfg_file_path
 
 # 版本大于8，JRE集成到JDK里了
-if ["$cfg_nbr" -gt 8]; then
+if [ "$cfg_nbr" -gt 8 ]; then
     echo 'export JRE_HOME=$JAVA_HOME' >>$java_cfg_file_path
 else
     echo 'export JRE_HOME=$JAVA_HOME/jre' >>$java_cfg_file_path
